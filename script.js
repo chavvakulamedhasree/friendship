@@ -1,34 +1,19 @@
-// Floating hearts & flowers generator
-const bg = document.querySelector(".floating-bg");
+console.log("Starting friendship.exe...");
+console.log("Loading memories... ██████████ 100%");
+console.log("Loading laughter... ██████████ 100%");
+console.log("Loading trust... ██████████ 100%");
+console.log("Loading love... ██████████ 100%");
 
-const symbols = ["💖", "🌸", "🌼", "💜", "💛", "🌺"];
+setTimeout(() => {
+    console.log("Program loaded successfully ❤️");
+}, 1500);
 
-for (let i = 0; i < 30; i++) {
-  let span = document.createElement("span");
-  span.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-  span.style.left = Math.random() * 100 + "vw";
-  span.style.animationDuration = (5 + Math.random() * 5) + "s";
-  span.style.fontSize = (20 + Math.random() * 30) + "px";
-  bg.appendChild(span);
-}
+const friendship = {
+    bestFriend: true,
+    favoritePerson: true,
+    hugsPending: "∞",
+    distance: "Too much",
+    love: "Infinite ❤️"
+};
 
-// Step functions
-function showQuestion() {
-  document.getElementById("step1").classList.add("hidden");
-  document.getElementById("questionBox").classList.remove("hidden");
-}
-
-function showResult() {
-  document.getElementById("questionBox").classList.add("hidden");
-  document.getElementById("result").classList.remove("hidden");
-}
-
-function openEnvelope() {
-  document.getElementById("result").classList.add("hidden");
-  document.getElementById("envelopeSection").classList.remove("hidden");
-}
-
-function openLetter() {
-  document.getElementById("envelopeSection").classList.add("hidden");
-  document.getElementById("letterBox").classList.remove("hidden");
-}
+console.table(friendship);
