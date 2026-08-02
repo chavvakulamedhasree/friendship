@@ -1,151 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Friendship Day ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>friendship.exe</title>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-background:linear-gradient(135deg,#ffdde1,#ee9ca7);
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-overflow:hidden;
-}
-
-.card{
-width:90%;
-max-width:750px;
-background:white;
-padding:40px;
-border-radius:25px;
-box-shadow:0 15px 40px rgba(0,0,0,.15);
-text-align:center;
-animation:fadeIn 2s;
-position:relative;
-z-index:2;
-}
-
-h1{
-font-family:'Dancing Script',cursive;
-font-size:60px;
-color:#ff4d6d;
-margin-bottom:20px;
-}
-
-.type{
-font-size:20px;
-line-height:1.8;
-color:#555;
-min-height:180px;
-}
-
-button{
-margin-top:35px;
-padding:15px 35px;
-font-size:18px;
-border:none;
-background:#ff4d6d;
-color:white;
-border-radius:40px;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-background:#ff2d55;
-}
-
-#secret{
-display:none;
-margin-top:30px;
-font-size:20px;
-color:#ff4d6d;
-animation:fadeIn 2s;
-}
-
-.heart{
-position:absolute;
-color:#ff4d6d;
-font-size:20px;
-animation:float 8s linear infinite;
-opacity:.7;
-}
-
-@keyframes float{
-0%{
-transform:translateY(100vh);
-opacity:0;
-}
-20%{
-opacity:1;
-}
-100%{
-transform:translateY(-100vh);
-opacity:0;
-}
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-</style>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="card">
+<div id="terminal">
+
+<pre id="output"></pre>
+
+<button id="enterBtn" onclick="showLetter()">
+
+ENTER ❤️
+
+</button>
+
+</div>
+
+<div id="letter">
 
 <h1>Happy Friendship Day ❤️</h1>
 
-<p class="type" id="text"></p>
+<p id="message"></p>
 
 <button onclick="showSecret()">
-Click Me ❤️
+
+One Last Thing...
+
 </button>
 
 <div id="secret">
 
-<h2>You Found My Secret 🥹</h2>
+<h2>❤️ You Found My Secret ❤️</h2>
 
-<p style="margin-top:20px">
+<p>
 
-Thank you for being my best friend,
-my biggest comfort,
-my favorite person,
-and the one who makes every ordinary day feel special.
+Thank you for being my best friend.
+
+My favorite notification.
+
+My safe place.
+
+And my favorite person.
 
 No matter how many miles separate us,
-my heart always finds its way back to you.
 
-I can't wait for the day
-when "I miss you"
-becomes
-"I'm here."
+I'd still choose you.
 
-❤️
+Every.
+
+Single.
+
+Time.
+
+Happy Friendship Day ❤️
+
+I love you.
 
 </p>
 
@@ -153,67 +72,8 @@ becomes
 
 </div>
 
-<script>
-
-const message = `Dear Love,
-
-Happy Friendship Day ❤️
-
-You're more than my boyfriend—you're my best friend, my biggest comfort, and my favorite part of every day.
-
-Distance may keep us apart, but it could never change how much you mean to me.
-
-Thank you for always being there, for making me smile, and for simply being you.
-
-I'd choose you, every single time.
-
-Happy Friendship Day, my favorite person.
-
-I love you. ❤️`;
-
-let i=0;
-
-function typing(){
-
-if(i<message.length){
-
-document.getElementById("text").innerHTML+=message.charAt(i);
-
-i++;
-
-setTimeout(typing,35);
-
-}
-
-}
-
-typing();
-
-function showSecret(){
-
-document.getElementById("secret").style.display="block";
-
-}
-
-for(let i=0;i<25;i++){
-
-let heart=document.createElement("div");
-
-heart.className="heart";
-
-heart.innerHTML="❤️";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.animationDuration=(5+Math.random()*5)+"s";
-
-heart.style.fontSize=(15+Math.random()*20)+"px";
-
-document.body.appendChild(heart);
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
+
 </html>
