@@ -1,91 +1,257 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Special Surprise 💖</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Friendship Day ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+overflow:hidden;
+}
+
+.card{
+width:90%;
+max-width:750px;
+background:white;
+padding:40px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+text-align:center;
+animation:fadeIn 2s;
+position:relative;
+z-index:2;
+}
+
+h1{
+font-family:'Dancing Script',cursive;
+font-size:60px;
+color:#ff4d6d;
+margin-bottom:20px;
+}
+
+.type{
+font-size:20px;
+line-height:1.8;
+color:#555;
+min-height:180px;
+}
+
+button{
+margin-top:35px;
+padding:15px 35px;
+font-size:18px;
+border:none;
+background:#ff4d6d;
+color:white;
+border-radius:40px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#ff2d55;
+}
+
+#secret{
+display:none;
+margin-top:30px;
+font-size:20px;
+color:#ff4d6d;
+animation:fadeIn 2s;
+}
+
+.heart{
+position:absolute;
+color:#ff4d6d;
+font-size:20px;
+animation:float 8s linear infinite;
+opacity:.7;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-100vh);
+opacity:0;
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+
 </head>
+
 <body>
 
-<!-- Floating background -->
-<div class="floating-bg"></div>
+<div class="card">
 
-<!-- Step 1 -->
-<div id="step1" class="container">
-  <h1>💖 Click on the Heart 💖</h1>
-  <div class="big-heart" onclick="showQuestion()">❤️</div>
-</div>
+<h1>Happy Friendship Day ❤️</h1>
 
-<!-- Step 2 -->
-<div id="questionBox" class="hidden container">
-  <h2>So tell me… 👀</h2>
-  <h1>Are you gay? 😌</h1>
-  <button onclick="showResult()">YES 😏</button>
-  <button onclick="showResult()">NO 😌</button>
-</div>
+<p class="type" id="text"></p>
 
-<!-- Step 3 -->
-<div id="result" class="hidden container">
-  <h2>I KNOW YOU ARE GAY 😜</h2>
-  <div id="emoji" onclick="openEnvelope()">
-    😂 <p>👆 click on me</p>
-  </div>
-</div>
+<button onclick="showSecret()">
+Click Me ❤️
+</button>
 
-<!-- Step 4 -->
-<div id="envelopeSection" class="hidden container">
-  <div class="envelope" onclick="openLetter()">💌</div>
-  <p>Click the envelope 💌</p>
-</div>
+<div id="secret">
 
-<!-- Step 5 -->
-<div id="letterBox" class="hidden">
-  <div class="letter">
-    <h2>Happy Valentine’s Day 💖</h2>
-    <p>
-Happy Valentine’s Day uncle 💖<br><br>
+<h2>You Found My Secret 🥹</h2>
 
-I just wanted to say thank you… really.  
-Thank you for always being there whenever I get stuck with incidents.  
-      
-<b>No matter how many times I ask, you never say no.  
-You always help me patiently — and honestly, you are one of the main reasons I’m still surviving in this project 😌✨  </b>
+<p style="margin-top:20px">
 
-<b>You are not just a manager… you are the kind of leader who treats team problems like your own problems.  
-That’s something very rare. And I truly admire that about you.  </b>
+Thank you for being my best friend,
+my biggest comfort,
+my favorite person,
+and the one who makes every ordinary day feel special.
 
-<b>Even though your voice sounds a little scary sometimes 😂  
-I know you are actually a very kind and caring person inside.  </b>
+No matter how many miles separate us,
+my heart always finds its way back to you.
 
-<b>Also… you and your Dil Pasand situation 🙄  
-You never share it with anyone! Very bad behaviour sir 😤😂  </b>
+I can't wait for the day
+when "I miss you"
+becomes
+"I'm here."
 
-<b>And yes… I know I always make you say sorry even when you did nothing wrong.  
-But I enjoy it too much when you say “sorry” 😌  
-So you have no choice — you must continue saying sorry to me forever.</b>  
+❤️
 
-<b>I like teasing you… a lot 😈  
-Making fun of you is one of my favourite hobbies.  
-And honestly, I don’t think I’ll ever stop doing that.  </b>
-
-<b>Sometimes I get a little jealous also…  
-I want you to be close only to me, not to others — not even Raj 😏  
-Don’t ask why… I just don’t like it 😌  </b>
-
-<b>Even if one day we go to different projects…  
-I will never forget you.  
-You will always be my chweeett bajji 🥹💛  </b>
-
-<b>Thank you for guiding me, supporting me, and tolerating me.  
-You are truly the best manager.  </b>
-
-Luv u my cutiee uncle 💕
 </p>
 
-  </div>
 </div>
 
-<script src="script.js"></script>
+</div>
+
+<script>
+
+const message=`Dear Love,
+
+Happy Friendship Day ❤️
+
+Before anything else...
+
+Thank you.
+
+Thank you for coming into my life.
+
+Thank you for listening to my random stories.
+
+Thank you for making me laugh on difficult days.
+
+Thank you for believing in me even when I don't believe in myself.
+
+People say distance is hard...
+
+But somehow you've made thousands of miles feel smaller.
+
+You're not just my boyfriend.
+
+You're my best friend.
+
+You're my safe place.
+
+You're my favorite notification.
+
+You're the person I want to tell everything to.
+
+If I had to choose my best friend all over again...
+
+I'd still choose you.
+
+Every.
+Single.
+Time.
+
+I hope one day we'll celebrate this together instead of through screens.
+
+Until then...
+
+Know that someone, thousands of miles away, is smiling because you exist.
+
+I appreciate you.
+
+I admire you.
+
+I miss you.
+
+And I'm so lucky to have you.
+
+Happy Friendship Day, my favorite human. ❤️`;
+
+let i=0;
+
+function typing(){
+
+if(i<message.length){
+
+document.getElementById("text").innerHTML+=message.charAt(i);
+
+i++;
+
+setTimeout(typing,35);
+
+}
+
+}
+
+typing();
+
+function showSecret(){
+
+document.getElementById("secret").style.display="block";
+
+}
+
+for(let i=0;i<25;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+heart.style.fontSize=(15+Math.random()*20)+"px";
+
+document.body.appendChild(heart);
+
+}
+
+</script>
+
 </body>
 </html>
-
-
