@@ -1,5 +1,4 @@
 const boot = [
-
 "Microsoft Windows [Version 11.0.0000]",
 "",
 "C:\\Users\\FavoritePerson> friendship.exe",
@@ -22,36 +21,33 @@ const boot = [
 "❤️ MY FAVORITE PERSON ❤️",
 "",
 "Press ENTER to continue..."
-
 ];
 
-const output=document.getElementById("output");
+const output = document.getElementById("output");
 
-let line=0;
+let line = 0;
 
 function terminal(){
 
-if(line<boot.length){
+    if(line < boot.length){
 
-output.innerHTML+=boot[line]+"<br>";
+        output.innerHTML += boot[line] + "\n";
 
-line++;
+        line++;
 
-setTimeout(terminal,500);
+        setTimeout(terminal,450);
 
-}
+    }else{
 
-else{
+        document.getElementById("enterBtn").style.display="inline-block";
 
-document.getElementById("enterBtn").style.display="inline-block";
-
-}
+    }
 
 }
 
 terminal();
 
-const message=`Dear Love,
+const message = `Dear Love,
 
 Happy Friendship Day ❤️
 
@@ -93,37 +89,45 @@ My Favorite Human ❤️`;
 
 function showLetter(){
 
-document.getElementById("terminal").style.display="none";
+    document.getElementById("terminal").style.display="none";
+    document.getElementById("letter").style.display="block";
 
-document.getElementById("letter").style.display="block";
-
-type();
+    type();
 
 }
 
-let i=0;
+let i = 0;
 
 function type(){
 
-if(i<message.length){
+    const msg = document.getElementById("message");
 
-document.getElementById("message").innerHTML+=message.charAt(i);
+    if(i <= message.length){
 
-i++;
+        msg.innerHTML = message.substring(0,i).replace(/\n/g,"<br>");
 
-setTimeout(type,35);
+        i++;
 
-}
+        window.scrollTo(0,document.body.scrollHeight);
+
+        setTimeout(type,35);
+
+    }
 
 }
 
 function showSecret(){
 
-document.getElementById("secret").style.display="block";
+    document.getElementById("secret").style.display="block";
 
-console.log("❤️ Hidden Message ❤️");
-console.log("Distance = Temporary");
-console.log("Friendship = Forever");
-console.log("Love = Infinite");
+    window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:"smooth"
+    });
+
+    console.log("❤️ Hidden Message ❤️");
+    console.log("Distance = Temporary");
+    console.log("Friendship = Forever");
+    console.log("Love = Infinite");
 
 }
