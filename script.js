@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -7,75 +7,132 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: linear-gradient(135deg, #240018, #58152e, #9e3658);
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
     min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        135deg,
+        #200013,
+        #50152f,
+        #852b4e,
+        #3a1028
+    );
+    background-attachment: fixed;
+    color: white;
     overflow-x: hidden;
 }
 
-.welcome {
+/* FLOATING HEARTS */
+
+#hearts-container {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.heart {
+    position: absolute;
+    bottom: -40px;
+    opacity: 0;
+    animation: floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(40deg);
+        opacity: 0;
+    }
+}
+
+/* WELCOME SCREEN */
+
+.welcome-screen {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     padding: 25px;
     text-align: center;
 }
 
-.welcome-content {
-    max-width: 600px;
-    animation: fadeIn 1.5s ease;
+.welcome-card {
+    width: 100%;
+    max-width: 650px;
+    padding: 45px 25px;
+    animation: appear 1.5s ease;
 }
 
-.heart-icon {
+.main-heart {
     font-size: 65px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     animation: heartbeat 1.5s infinite;
 }
 
-.small-text {
-    color: #ffc6d7;
-    letter-spacing: 2px;
-    font-size: 12px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #ffb7ce;
+    margin-bottom: 25px;
 }
 
-h1 {
+.welcome-card h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(45px, 9vw, 75px);
-    color: #ffcfdf;
+    font-size: clamp(45px, 8vw, 76px);
     line-height: 1.2;
-    margin-bottom: 20px;
+    color: #ffd1df;
+    margin-bottom: 25px;
+    text-shadow: 0 0 25px #ff9fbe44;
 }
 
-.subtitle {
+.welcome-text {
     font-size: 14px;
-    color: #f8dce6;
+    color: #f5dce6;
+    line-height: 2;
     margin-bottom: 35px;
-    line-height: 1.8;
 }
 
 button {
-    background: #ffb5ca;
-    color: #54152f;
+    padding: 15px 30px;
     border: none;
-    padding: 15px 27px;
-    border-radius: 30px;
+    border-radius: 40px;
+    background: #ffc0d3;
+    color: #59152f;
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 5px 20px #ff9bbd44;
+    box-shadow: 0 5px 25px #ffb4cc55;
+    transition: all 0.3s ease;
 }
 
 button:hover {
     background: white;
     transform: translateY(-4px);
+    box-shadow: 0 8px 30px #ffb4cc77;
 }
+
+.bottom-note {
+    margin-top: 35px;
+    font-size: 11px;
+    color: #eeb7c9;
+}
+
+/* LETTER SECTION */
 
 .hidden {
     display: none !important;
@@ -83,182 +140,248 @@ button:hover {
 
 .letter-section {
     padding: 45px 15px;
-    animation: fadeIn 1.2s ease;
+    animation: appear 1s ease;
 }
 
-.letter {
-    max-width: 750px;
+.letter-card {
+    max-width: 760px;
     margin: auto;
-    padding: clamp(25px, 6vw, 55px);
-    background: #fff8f5;
-    color: #57313d;
+    padding: clamp(25px, 6vw, 60px);
+    background: #fff8f3;
+    color: #553540;
     border-radius: 18px;
-    box-shadow: 0 15px 60px #16000d66;
+    box-shadow: 0 15px 70px #16000d88;
     position: relative;
 }
 
-.top-decoration,
-.bottom-heart {
+.letter-top,
+.letter-bottom {
     text-align: center;
-    color: #d95d86;
-    font-size: 35px;
+    font-size: 36px;
+    color: #c24b76;
 }
 
-.date {
+.letter-date {
     text-align: center;
-    color: #b56b83;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 2px;
-    margin: 15px 0 25px;
+    color: #ad6c81;
+    margin: 20px 0 30px;
 }
 
-.letter h1 {
-    color: #a33c61;
-    font-size: clamp(38px, 8vw, 54px);
+.letter-card h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(37px, 7vw, 55px);
+    color: #a83c63;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
-.letter p {
+.letter-card p {
     font-size: 14px;
     line-height: 2;
-    margin-bottom: 19px;
+    margin-bottom: 21px;
     text-align: left;
+    font-weight: 400;
 }
 
-.letter .intro {
+.letter-card .greeting {
     font-family: 'Dancing Script', cursive;
-    font-size: 30px;
-    color: #b53c67;
+    font-size: 29px;
+    color: #bc416b;
+}
+
+.special-note {
+    font-family: 'Dancing Script', cursive;
+    font-size: 26px;
+    color: #b63d68;
+    margin: 30px 0 20px;
+    text-align: center;
 }
 
 .highlight {
-    background: #ffe6ed;
-    border-left: 4px solid #d65c84;
-    padding: 16px 18px;
-    border-radius: 5px;
-    color: #943653;
-    font-weight: 500;
+    background: #ffe7ee;
+    border-left: 4px solid #cf6085;
+    padding: 18px 20px;
+    border-radius: 7px;
+    color: #943d5b;
+    font-size: 14px;
+    line-height: 2;
+    margin: 25px 0;
 }
 
+/* ENDING */
+
 .ending {
-    text-align: center;
     margin-top: 40px;
-    border-top: 1px dashed #d9a3b4;
-    padding-top: 30px;
+    padding-top: 35px;
+    border-top: 1px dashed #d9a2b5;
+    text-align: center;
+}
+
+.ending-heart {
+    font-size: 35px;
+    margin-bottom: 15px;
 }
 
 .ending h2 {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(30px, 7vw, 43px);
-    color: #bc416b;
-    margin-bottom: 15px;
+    font-size: clamp(32px, 7vw, 46px);
+    color: #b73f6a;
+    margin-bottom: 20px;
 }
 
 .ending p {
     text-align: center;
 }
 
-.signature {
+.ending .signature {
     font-family: 'Dancing Script', cursive;
-    font-size: 27px !important;
-    color: #a33c61;
-    margin-top: 25px;
+    font-size: 28px;
+    color: #a83c63;
+    line-height: 1.7;
+    margin-top: 30px;
 }
 
-.bottom-heart {
-    margin-top: 25px;
+.letter-bottom {
+    margin-top: 35px;
 }
+
+/* FINAL MESSAGE */
 
 .final-message {
+    max-width: 650px;
+    margin: 65px auto 20px;
+    padding: 25px;
     text-align: center;
-    max-width: 600px;
-    margin: 55px auto 20px;
-    padding: 20px;
+}
+
+.final-small {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #ffb6cc;
+    margin-bottom: 20px;
 }
 
 .final-message h2 {
     font-family: 'Dancing Script', cursive;
-    font-size: 42px;
-    color: #ffcada;
-    margin-bottom: 20px;
+    font-size: 48px;
+    color: #ffd0df;
+    margin-bottom: 25px;
 }
 
 .final-message p {
     font-size: 14px;
+    color: #ffe6ee;
     line-height: 2;
-    color: #ffe5ed;
+    margin-bottom: 15px;
 }
 
-.final-message .forever {
+.final-message h3 {
     font-family: 'Dancing Script', cursive;
-    font-size: 30px;
-    color: #ffc0d4;
-    margin-top: 20px;
+    font-size: 34px;
+    color: #ffc2d5;
+    margin-top: 30px;
 }
 
-.heart {
-    position: fixed;
-    bottom: -20px;
-    color: #ffb2cb;
-    pointer-events: none;
-    animation: floatUp linear forwards;
-    z-index: 10;
+.final-heart {
+    font-size: 40px;
+    margin: 30px 0;
+    animation: heartbeat 1.5s infinite;
 }
 
-@keyframes floatUp {
-    to {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
+/* ANIMATIONS */
 
 @keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
 }
 
-@keyframes fadeIn {
+@keyframes appear {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(25px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@media(max-width: 600px) {
+/* MOBILE RESPONSIVENESS */
 
-    .welcome {
+@media screen and (max-width: 600px) {
+
+    .welcome-screen {
         padding: 20px;
+    }
+
+    .welcome-card {
+        padding: 30px 10px;
+    }
+
+    .welcome-card h1 {
+        font-size: 48px;
     }
 
     .letter-section {
         padding: 20px 10px;
     }
 
-    .letter {
-        padding: 25px 20px;
-        border-radius: 12px;
+    .letter-card {
+        padding: 27px 20px;
+        border-radius: 13px;
     }
 
-    .letter p {
+    .letter-card h1 {
+        font-size: 39px;
+        line-height: 1.3;
+    }
+
+    .letter-card p {
         font-size: 13px;
-        line-height: 1.85;
-        margin-bottom: 17px;
+        line-height: 1.9;
+        margin-bottom: 19px;
     }
 
-    .letter .intro {
+    .letter-card .greeting {
         font-size: 27px;
     }
 
-    .signature {
-        font-size: 25px !important;
+    .highlight {
+        font-size: 13px;
+        padding: 15px;
+        line-height: 1.9;
+    }
+
+    .special-note {
+        font-size: 23px;
+    }
+
+    .ending h2 {
+        font-size: 35px;
+    }
+
+    .ending .signature {
+        font-size: 26px;
     }
 
     .final-message {
-        margin-top: 35px;
+        margin-top: 40px;
+        padding: 15px;
+    }
+
+    .final-message h2 {
+        font-size: 42px;
+    }
+
+    .final-message h3 {
+        font-size: 29px;
     }
 }
