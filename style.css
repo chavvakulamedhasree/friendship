@@ -6,8 +6,6 @@ const heartsContainer = document.getElementById("hearts-container");
 
 let heartInterval;
 
-// Open the letter
-
 openButton.addEventListener("click", function () {
 
     welcome.classList.add("hidden");
@@ -26,9 +24,6 @@ openButton.addEventListener("click", function () {
     }, 1800);
 
 });
-
-
-// Create floating hearts
 
 function createHearts(amount) {
 
