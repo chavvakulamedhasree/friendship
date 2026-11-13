@@ -2,11 +2,16 @@
 const openButton = document.getElementById("openLetter");
 const welcome = document.getElementById("welcome");
 const letterSection = document.getElementById("letterSection");
-const heartsContainer = document.getElementById("hearts");
+const heartsContainer = document.getElementById("hearts-container");
+
+let heartInterval;
+
+// Open the letter
 
 openButton.addEventListener("click", function () {
 
-    welcome.style.display = "none";
+    welcome.classList.add("hidden");
+
     letterSection.classList.remove("hidden");
 
     window.scrollTo({
@@ -14,66 +19,48 @@ openButton.addEventListener("click", function () {
         behavior: "smooth"
     });
 
-    createHearts(35);
+    createHearts(40);
+
+    heartInterval = setInterval(function () {
+        createHearts(3);
+    }, 1800);
 
 });
 
+
+// Create floating hearts
+
 function createHearts(amount) {
+
+    const symbols = ["❤️", "💕", "💗", "💖", "♡", "💘"];
 
     for (let i = 0; i < amount; i++) {
 
-        setTimeout(() => {
+        setTimeout(function () {
 
             const heart = document.createElement("div");
 
             heart.classList.add("heart");
 
-            const symbols = ["❤️", "💕", "♡", "💗", "💖"];
-
             heart.innerHTML =
                 symbols[Math.floor(Math.random() * symbols.length)];
 
-            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.left = Math.random() * 100 + "%";
 
             heart.style.fontSize =
-                (Math.random() * 20 + 12) + "px";
+                (Math.random() * 17 + 12) + "px";
 
             heart.style.animationDuration =
-                (Math.random() * 4 + 4) + "s";
+                (Math.random() * 4 + 5) + "s";
 
             heartsContainer.appendChild(heart);
 
-            setTimeout(() => {
+            setTimeout(function () {
                 heart.remove();
-            }, 8000);
+            }, 9500);
 
-        }, i * 180);
+        }, i * 100);
 
     }
 
 }
-
-// Little floating hearts in the background
-
-setInterval(() => {
-
-    if (!letterSection.classList.contains("hidden")) {
-
-        const heart = document.createElement("div");
-
-        heart.classList.add("heart");
-        heart.innerHTML = "❤️";
-
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.fontSize = "16px";
-        heart.style.animationDuration = "6s";
-
-        heartsContainer.appendChild(heart);
-
-        setTimeout(() => {
-            heart.remove();
-        }, 6000);
-
-    }
-
-}, 1200);
